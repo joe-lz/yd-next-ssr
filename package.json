@@ -14,6 +14,10 @@
     "export": "next export"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.5.0",
+    "antd": "^4.13.1",
+    "axios": "^0.21.1",
+    "moment": "^2.29.1",
     "next": "9.5.4",
     "react": "16.13.1",
     "react-dom": "16.13.1"
