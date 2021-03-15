@@ -1,28 +1,28 @@
-import styles from "../../styles/YDNavigatoer.module.css";
+import styles from '../../styles/YDNavigatoer.module.scss';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function YDNavigator({}) {
-
-
-  return (<nav className={
-    styles.nav
-  }>
-    <div className={
-      styles.container
-    }>
-      <img className={
-          styles.logo
-        }
-        src="/next-ssr/yd-logo.png"
-        alt="logo"
-        title='logo'/>
-      <div className={styles.wraper}>
-        <a href=""className={styles.link}>我们</a>
-        <a href=""className={styles.link}>投资</a>
-        <a href=""className={styles.link}>团队</a>
-        <a href=""className={styles.link}>联系</a>
+  const router = useRouter();
+  return (
+    <nav className={styles.nav}>
+      <div className={styles.container}>
+        <img className={styles.logo} src="/next-ssr/yd-logo.png" alt="logo" title="logo" />
+        <div className={styles.wraper}>
+          <Link href="/">
+            <a className={router.pathname == '/' ? styles.link_active : styles.link}>我们</a>
+          </Link>
+          <Link href="/invest">
+            <a className={router.pathname == '/invest' ? styles.link_active : styles.link}>投资</a>
+          </Link>
+          <Link href="/team">
+            <a className={router.pathname == '/team' ? styles.link_active : styles.link}>团队</a>
+          </Link>
+          <Link href="/contact">
+            <a className={router.pathname == '/contact' ? styles.link_active : styles.link}>联系</a>
+          </Link>
+        </div>
       </div>
-    </div>
-
-
-  </nav>);
+    </nav>
+  );
 }
