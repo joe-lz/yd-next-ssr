@@ -18,7 +18,7 @@ function Home() {
 
   const init = async (value, page) => {
     const result_index = await IndexReq.getindex();
-    console.log({ result_index });
+
     setindex(result_index);
     const result_contact = await IndexReq.getContact();
     setcontact(result_contact);
@@ -28,7 +28,7 @@ function Home() {
     <div className={styles.container}>
       <SeoHead />
       <NDNavigator />
-      {index.map((obj, index) => {
+      {index.length > 0 ? index.map((obj, index) => {
         return (
           <div
             key={obj._id}
@@ -36,7 +36,7 @@ function Home() {
             style={{
               backgroundImage: `url(${obj.bg
                 .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                .replace('696e-incapital-4gly5z3b00512dc4-1305204328', '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la')}?imageView2/0/format/jpg/interlace/1/q/30|imageslim)`,
+                .replace('696e-incapital-4gly5z3b00512dc4-1305204328', '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la')}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
             }}
           >
             <div className={styles[`section_content${index}`]}>
@@ -71,7 +71,12 @@ function Home() {
             </div>
           </div>
         );
-      })}
+      }) : <>
+        <div className={styles.section}></div>
+        <div className={styles.section}></div>
+        <div className={styles.section}></div>
+        <div className={styles.section}></div>
+      </>}
       <NDFooter data={contact} />
     </div>
   );

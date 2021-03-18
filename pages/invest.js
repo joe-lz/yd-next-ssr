@@ -8,6 +8,7 @@ import NDNavigator from '../components/NDNavigator/';
 import NDFooter from '../components/NDFooter/';
 
 function Home() {
+  const [active, setactive] = useState(-1);
   const [contact, setcontact] = useState();
   const [invest, setinvest] = useState([]);
   const [investType, setinvestType] = useState([]);
@@ -39,7 +40,7 @@ function Home() {
               .replace(
                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-              )}?imageView2/0/format/jpg/interlace/1/q/30|imageslim)`,
+              )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
           }}
         >
           <div className={styles.section_content}>
@@ -48,15 +49,16 @@ function Home() {
           </div>
         </div>
       ) : (
-        ''
+        <div className={styles.section}></div>
       )}
       <div className={styles.section_list}>
         <div className={styles.section_nav}>
           <div className={styles.section_content_nav}>
-            <div className={styles.section_nav_item}>全部</div>
+            {/* <div className={active == -1 ? styles.section_nav_item_active : styles.section_nav_item}>全部</div> */}
+            <div className={styles.section_nav_item_active}>全部</div>
             {investType.map((obj, index) => {
               return (
-                <div className={styles.section_nav_item} key={obj._id}>
+                <div className={active == index ? styles.section_nav_item_active : styles.section_nav_item} key={obj._id}>
                   {obj.title}
                 </div>
               );
@@ -76,7 +78,7 @@ function Home() {
                       .replace(
                         '696e-incapital-4gly5z3b00512dc4-1305204328',
                         '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                      )}?imageView2/0/format/jpg/interlace/1/q/30|imageslim)`,
+                      )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
                   }}
                 ></div>
                 <p className={styles.section_content_invest_item_title}>{obj.title}</p>
@@ -98,7 +100,7 @@ function Home() {
               .replace(
                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-              )}?imageView2/0/format/jpg/interlace/1/q/30|imageslim)`,
+              )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
           }}
         >
           <div className={styles.section_content3}>
@@ -110,7 +112,7 @@ function Home() {
           </div>
         </div>
       ) : (
-        ''
+        <div className={styles.section}></div>
       )}
       <NDFooter data={contact} />
     </div>

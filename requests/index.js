@@ -68,4 +68,17 @@ export class IndexReq {
     const axiosRes = await axios(config);
     return axiosRes.data.data;
   }
+
+  static async getteam(params) {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "get",
+      url: `${baseUrl}?page=team`,
+      data: params
+    };
+    const axiosRes = await axios(config);
+    return axiosRes.data.data;
+  }
 }

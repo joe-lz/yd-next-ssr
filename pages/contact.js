@@ -17,17 +17,9 @@ function Home() {
   }, []);
 
   const init = async (value, page) => {
-    // const result_index = await IndexReq.getindex();
-    // console.log({ result_index });
-    // setindex(result_index);
     const result_contact = await IndexReq.getContact();
     setcontact(result_contact);
   };
-  let arr_title = [];
-  if (contact) {
-    arr_title = contact.team_section1_title.split(',');
-    console.log(arr_title);
-  }
   return (
     <div className={styles.container}>
       <SeoHead />
@@ -41,7 +33,7 @@ function Home() {
               .replace(
                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-              )}?imageView2/0/format/jpg/interlace/1/q/30|imageslim)`,
+              )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
           }}
         >
           <div className={styles.section_content4}>
@@ -53,7 +45,7 @@ function Home() {
           </div>
         </div>
       ) : (
-        ''
+        <div className={styles.section}></div>
       )}
       <NDFooter data={contact} />
     </div>

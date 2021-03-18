@@ -2,9 +2,8 @@
   padding-top: 80px;
 }
 .section_list {
-  padding-bottom: -30px;
-  overflow: hidden;
   width: 100%;
+  min-height: 800px;
 }
 .section {
   width: 100%;
@@ -16,7 +15,7 @@
   &_nav {
     background-color: #f4f6f9;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    &_item {
+    &_item, &_item_active {
       padding: 0 50px;
       display: inline-block;
       height: 50px;
@@ -98,28 +97,25 @@
     margin-bottom: 15px;
     font-size: 50px;
     color: white;
-    font-weight: 200;
   }
   &_desc {
     margin-bottom: 15px;
     font-size: 20px;
     color: white;
-    font-weight: 200;
   }
   &_desc2 {
     font-size: 20px;
     color: white;
-    font-weight: 200;
   }
 
   .section_email_wrapper {
     padding-top: 80px;
+    font-weight: 400;
   }
   .section_email {
     margin-bottom: 15px;
     font-size: 20px;
     color: white;
-    // font-weight: 200;
     text-align: center;
     letter-spacing: 3px;
   }
@@ -127,7 +123,6 @@
     display: flex;
     font-size: 20px;
     color: white;
-    font-weight: 200;
     &_item {
       margin-right: 100px;
     }

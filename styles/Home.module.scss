@@ -53,27 +53,24 @@
     margin-bottom: 15px;
     font-size: 50px;
     color: white;
-    font-weight: 200;
   }
   &_desc {
     margin-bottom: 15px;
     font-size: 20px;
     color: white;
-    font-weight: 200;
   }
   &_desc2 {
     font-size: 20px;
     color: white;
-    font-weight: 200;
   }
   .section_email_wrapper {
     padding-top: 80px;
+    font-weight: 400;
   }
   .section_email {
     margin-bottom: 15px;
     font-size: 20px;
     color: white;
-    // font-weight: 200;
     text-align: center;
     letter-spacing: 3px;
   }
@@ -81,7 +78,6 @@
     display: flex;
     font-size: 20px;
     color: white;
-    font-weight: 200;
     &_item {
       margin-right: 100px;
     }

@@ -23,6 +23,11 @@ exports.main = async (event, context) => {
     const res = await getinvestType(db);
     return res;
   }
+
+  if (event.queryStringParameters && event.queryStringParameters.page === 'team') {
+    const res = await getteam(db);
+    return res;
+  }
   return {
     event,
     envId: cloud.parseContext(context).namespace
@@ -53,6 +58,13 @@ async function getinvest(db) {
 // 获取project_type
 async function getinvestType(db) {
   const collection = db.collection('project_type');
+  const res = await collection.where({}).get();
+  return res;
+}
+
+// 获取team
+async function getteam(db) {
+  const collection = db.collection('official_team');
   const res = await collection.where({}).get();
   return res;
 }

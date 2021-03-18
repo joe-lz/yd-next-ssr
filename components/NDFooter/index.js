@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function YDNavigator(props) {
-  console.log(props);
-
   return (
     <footer className={styles.footer}>
       {props.data ? (
