@@ -2,18 +2,29 @@ import Head from "next/head";
 
 export default function SeoHead({
     title = "盈动资本 - 只投我们想要的世界！",
-    keywords = "CloudPress,云开发,开源博客,前端知识图谱,算法题解,node开发,javascript编程,css3动画,react,编程分享",
-    description = "专注前端与算法，目前已有前端面试、剑指OFFER·JS、数据结构等系列专题",
-    author = "董沅鑫 心谭",
+    keywords = "专注早期，致力于寻找并帮助那些 心怀崇高而热切愿望，有企业家精神的创业者开创伟大事业我们已经在科技创新、企业服务和消费升级等领域投资了150+优秀的创业公司，有一批企业已经成长为行业的领导者",
+    description = "专注早期，致力于寻找并帮助那些 心怀崇高而热切愿望，有企业家精神的创业者开创伟大事业我们已经在科技创新、企业服务和消费升级等领域投资了150+优秀的创业公司，有一批企业已经成长为行业的领导者",
     children,
 }) {
     return (
         <Head>
+            <meta charset="UTF-8" />
             <title>{title}</title>
             <meta name="keywords" content={keywords} />
             <meta name="description" content={description} />
-            <meta name="author" content={author} />
-            <link rel="icon" href="/favicon.ico"/>
+            <link rel="icon" href="/favicon.ico" />
+
+            <meta name="renderer" content="webkit" />
+            <meta name="author" content="jeodiong@hotmail.com" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+            <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+            <meta name="format-detection" content="email=no" />
+            <meta name="format-detection" content="address=no" />
+            <meta name="format-detection" content="telephone=no" />
+            <meta http-equiv="Cache-Control" content="no-siteapp" />
+            <meta http-equiv="Window-target" content="_top" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-title" content="jeodiong" />
             {children}
         </Head>
     );
