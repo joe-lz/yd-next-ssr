@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { IndexReq } from './../requests/index';
+import { Modal, Button } from 'antd';
 
 import styles from '../styles/invest.module.scss';
 import SeoHead from '../components/SeoHead/';
@@ -8,6 +9,9 @@ import NDNavigator from '../components/NDNavigator/';
 import NDFooter from '../components/NDFooter/';
 
 function Home() {
+  const [visible, setvisible] = useState(false);
+  const [curItem, setcurItem] = useState();
+
   const [active, setactive] = useState(-1);
   const [contact, setcontact] = useState();
   const [invest, setinvest] = useState([]);
@@ -34,14 +38,14 @@ function Home() {
       {contact ? (
         <div
           className={styles.section}
-          style={{
+          style={contact.invest_section1_bg ? {
             backgroundImage: `url(${contact.invest_section1_bg
               .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
               .replace(
                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
               )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-          }}
+          } : {}}
         >
           <div className={styles.section_content}>
             <div className={styles.section_desc}>{contact.invest_section1_title1}</div>
@@ -69,17 +73,21 @@ function Home() {
         <div className={styles.section_content_invest}>
           {invest.map((obj) => {
             return (
-              <div className={styles.section_content_invest_item} key={obj._id}>
+              <div className={styles.section_content_invest_item} key={obj._id}
+                onClick={() => {
+                  setcurItem(obj)
+                  setvisible(true)
+                }}>
                 <div
                   className={styles.section_content_invest_item_img}
-                  style={{
+                  style={obj.logo ? {
                     backgroundImage: `url(${obj.logo
                       .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
                       .replace(
                         '696e-incapital-4gly5z3b00512dc4-1305204328',
                         '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
                       )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                  }}
+                  } : {}}
                 ></div>
                 <p className={styles.section_content_invest_item_title}>{obj.title}</p>
               </div>
@@ -94,14 +102,14 @@ function Home() {
       {contact ? (
         <div
           className={styles.section}
-          style={{
+          style={contact.invest_contact_bg ? {
             backgroundImage: `url(${contact.invest_contact_bg
               .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
               .replace(
                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
               )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-          }}
+          }:{}}
         >
           <div className={styles.section_content3}>
             <div className={styles.section_title}>联系我们</div>
@@ -115,6 +123,45 @@ function Home() {
         <div className={styles.section}></div>
       )}
       <NDFooter data={contact} />
+      <Modal
+        visible={visible}
+        footer={null}
+        onCancel={() => setvisible(false)}
+      >
+        {curItem && <div className={styles.modal_container}>
+          <div className={styles.modal_left}
+            style={curItem.bg_color ? {
+              backgroundColor: curItem.bg_color,
+            } : {}}>
+            <div className={styles.modal_left_avatar}
+              style={curItem.logo ? {
+                backgroundImage: `url(${curItem.logo
+                  .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                  .replace(
+                    '696e-incapital-4gly5z3b00512dc4-1305204328',
+                    '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+              } : {}}></div>
+            <div className={styles.modal_left_name}>{curItem.title}</div>
+          </div>
+          <div className={styles.modal_right}
+            style={curItem.bg_img ? {
+              backgroundImage: `url(${curItem.bg_img
+                .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                .replace(
+                  '696e-incapital-4gly5z3b00512dc4-1305204328',
+                  '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                )}?imageView2/0/format/jpg/interlace/1/q/50|imageslim)`,
+            } : {}}>
+            <div className={styles.modal_right_desc}>{curItem.producer}</div>
+            <div className={styles.modal_right_title}>{curItem.username}</div>
+            <div className={styles.modal_right_desc}>{curItem.invest_time}</div>
+            {curItem.site && <div className={styles.modal_right_title}>官网</div>}
+            <div className={styles.modal_right_desc}>{curItem.site}</div>
+          </div>
+        </div>}
+
+      </Modal>
     </div>
   );
 }

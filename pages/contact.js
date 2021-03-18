@@ -27,14 +27,14 @@ function Home() {
       {contact ? (
         <div
           className={styles.section}
-          style={{
+          style={contact.contact_bg ? {
             backgroundImage: `url(${contact.contact_bg
               .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
               .replace(
                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
               )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-          }}
+          } : {}}
         >
           <div className={styles.section_content4}>
             <div className={styles.section_title}>联系我们</div>

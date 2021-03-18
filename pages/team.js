@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { IndexReq } from './../requests/index';
+import { Modal, Button } from 'antd';
 
 import styles from '../styles/team.module.scss';
 import SeoHead from '../components/SeoHead/';
@@ -8,6 +9,9 @@ import NDNavigator from '../components/NDNavigator/';
 import NDFooter from '../components/NDFooter/';
 
 function Home() {
+  const [visible, setvisible] = useState(false);
+  const [curItem, setcurItem] = useState();
+
   const [team, setteam] = useState([]);
   const [contact, setcontact] = useState();
 
@@ -33,14 +37,14 @@ function Home() {
       {contact ? (
         <div
           className={styles.section}
-          style={{
+          style={contact.team_section1_bg ? {
             backgroundImage: `url(${contact.team_section1_bg
               .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
               .replace(
                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
               )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-          }}
+          } : {}}
         >
           <div className={styles.section_content1}>
             <div className={styles.section_title}>
@@ -57,25 +61,28 @@ function Home() {
       {contact ? (<div className={styles.section_team}>
         <p className={styles.section_team_title}>团队介绍</p>
         <div className={styles.section_team_content}>
-          <img className={styles.section_team_content_bg} src={`${contact.team_intro_bg
+          <img className={styles.section_team_content_bg} src={contact.team_intro_bg ? `${contact.team_intro_bg
             .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
             .replace(
               '696e-incapital-4gly5z3b00512dc4-1305204328',
               '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-            )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim`} />
+            )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim` : ''} />
           <div className={styles.section_team_content_scroll}>
 
             {team.map((obj) => {
-              return <div className={styles.section_team_content_item} key={obj._id}>
+              return <div className={styles.section_team_content_item} key={obj._id} onClick={() => {
+                setcurItem(obj)
+                setvisible(true)
+              }}>
                 <div className={styles.section_team_content_item_avatar}
-                  style={{
+                  style={obj.avatar ? {
                     backgroundImage: `url(${obj.avatar
                       .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
                       .replace(
                         '696e-incapital-4gly5z3b00512dc4-1305204328',
                         '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
                       )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                  }}>
+                  } : {}}>
                 </div>
                 <p>{obj.username}</p>
               </div>
@@ -88,14 +95,14 @@ function Home() {
       {contact ? (
         <div
           className={styles.section}
-          style={{
+          style={contact.team_section3_bg ? {
             backgroundImage: `url(${contact.team_section3_bg
               .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
               .replace(
                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
               )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-          }}
+          } : {}}
         >
           <div className={styles.section_content4}>
 
@@ -111,14 +118,14 @@ function Home() {
       {contact ? (
         <div
           className={styles.section}
-          style={{
+          style={contact.team_contact_bg ? {
             backgroundImage: `url(${contact.team_contact_bg
               .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
               .replace(
                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
               )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-          }}
+          } : {}}
         >
           <div className={styles.section_content4}>
             <div className={styles.section_title}>联系我们</div>
@@ -132,6 +139,41 @@ function Home() {
         <div className={styles.section}></div>
       )}
       <NDFooter data={contact} />
+      <Modal
+        visible={visible}
+        footer={null}
+        onCancel={() => setvisible(false)}
+      >
+        {curItem && <div className={styles.modal_container}>
+          <div className={styles.modal_left}>
+            <div className={styles.modal_left_avatar}
+              style={curItem.avatar ? {
+                backgroundImage: `url(${curItem.avatar
+                  .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                  .replace(
+                    '696e-incapital-4gly5z3b00512dc4-1305204328',
+                    '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+              } : {}}></div>
+            <div className={styles.modal_left_name}>{curItem.username}</div>
+            <div className={styles.modal_left_role}>{curItem.role}</div>
+          </div>
+          <div className={styles.modal_right}
+            style={curItem.bg_img ? {
+              backgroundImage: `url(${curItem.bg_img
+                .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                .replace(
+                  '696e-incapital-4gly5z3b00512dc4-1305204328',
+                  '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+            } : {}}>
+            <div className={styles.modal_right_desc}>{curItem.desc1}</div>
+            <div className={styles.modal_right_desc}>{curItem.desc2}</div>
+            <div className={styles.modal_right_desc}>{curItem.desc3}</div>
+          </div>
+        </div>}
+
+      </Modal>
     </div>
   );
 }

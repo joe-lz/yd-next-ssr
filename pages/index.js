@@ -33,11 +33,11 @@ function Home() {
           <div
             key={obj._id}
             className={styles.section}
-            style={{
+            style={obj.bg ? {
               backgroundImage: `url(${obj.bg
                 .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
                 .replace('696e-incapital-4gly5z3b00512dc4-1305204328', '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la')}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-            }}
+            } : {}}
           >
             <div className={styles[`section_content${index}`]}>
               <div className={styles.section_title} style={index == 2 ? { color: 'black' } : {}}>
