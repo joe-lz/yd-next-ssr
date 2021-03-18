@@ -29,4 +29,43 @@ export class IndexReq {
     const axiosRes = await axios(config);
     return axiosRes.data.data;
   }
+
+  static async getinvest(params) {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "get",
+      url: `${baseUrl}?page=invest`,
+      data: params
+    };
+    const axiosRes = await axios(config);
+    return axiosRes.data.data;
+  }
+
+  static async getinvest(params) {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "get",
+      url: `${baseUrl}?page=invest`,
+      data: params
+    };
+    const axiosRes = await axios(config);
+    return axiosRes.data.data;
+  }
+
+  static async getinvestType(params) {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "get",
+      url: `${baseUrl}?page=investType`,
+      data: params
+    };
+    const axiosRes = await axios(config);
+    return axiosRes.data.data;
+  }
 }
