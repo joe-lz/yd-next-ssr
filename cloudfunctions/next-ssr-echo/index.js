@@ -1,4 +1,4 @@
-const cloud = require("@cloudbase/node-sdk");
+const cloud = require('@cloudbase/node-sdk');
 
 exports.main = async (event, context) => {
   const app = cloud.init({
@@ -15,7 +15,7 @@ exports.main = async (event, context) => {
     return res;
   }
   if (event.queryStringParameters && event.queryStringParameters.page === 'invest') {
-    const res = await getinvest(db);
+    const res = await getinvest(db, event.queryStringParameters.id);
     return res;
   }
 
@@ -30,7 +30,7 @@ exports.main = async (event, context) => {
   }
   return {
     event,
-    envId: cloud.parseContext(context).namespace
+    envId: cloud.parseContext(context).namespace,
   };
 };
 
@@ -49,9 +49,14 @@ async function getindex(db) {
 }
 
 // 获取invest
-async function getinvest(db) {
+async function getinvest(db, id) {
   const collection = db.collection('official_invest');
-  const res = await collection.where({}).get();
+  let res = null;
+  if (id) {
+    res = await collection.where({ type: id }).get();
+  } else {
+    res = await collection.where({}).get();
+  }
   return res;
 }
 
