@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { IndexReq } from './../requests/index';
 
-import styles from '../styles/team.module.scss';
+import styles from '../styles/contact.module.scss';
 import SeoHead from '../components/SeoHead/';
 import NDNavigator from '../components/NDNavigator/';
 import NDFooter from '../components/NDFooter/';
