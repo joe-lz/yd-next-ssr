@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { IndexReq } from './../requests/index';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 
 import styles from '../styles/invest.module.scss';
 import SeoHead from '../components/SeoHead/';
