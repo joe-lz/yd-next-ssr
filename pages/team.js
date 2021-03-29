@@ -166,7 +166,9 @@ function Home() {
                   '696e-incapital-4gly5z3b00512dc4-1305204328',
                   '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
                 )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-            } : {}}>
+            } : {
+              backgroundImage: 'url("/next-ssr/bg-project.jpg")'
+            }}>
             <div className={styles.modal_right_desc}>{curItem.desc1}</div>
             <div className={styles.modal_right_desc}>{curItem.desc2}</div>
             <div className={styles.modal_right_desc}>{curItem.desc3}</div>
