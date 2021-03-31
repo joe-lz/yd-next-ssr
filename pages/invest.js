@@ -46,13 +46,13 @@ function Home() {
           style={
             contact.invest_section1_bg
               ? {
-                backgroundImage: `url(${contact.invest_section1_bg
-                  .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                  .replace(
-                    '696e-incapital-4gly5z3b00512dc4-1305204328',
-                    '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-              }
+                  backgroundImage: `url(${contact.invest_section1_bg
+                    .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                    .replace(
+                      '696e-incapital-4gly5z3b00512dc4-1305204328',
+                      '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                    )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                }
               : {}
           }
         >
@@ -94,35 +94,36 @@ function Home() {
         </div>
         <p className={styles.section_content_invest_title}>项目/简介</p>
         <div className={styles.section_content_invest}>
-          {invest && invest.map((obj) => {
-            return (
-              <div
-                className={styles.section_content_invest_item}
-                key={obj._id}
-                onClick={() => {
-                  setcurItem(obj);
-                  setvisible(true);
-                }}
-              >
+          {invest &&
+            invest.map((obj) => {
+              return (
                 <div
-                  className={styles.section_content_invest_item_img}
-                  style={
-                    obj.logo
-                      ? {
-                        backgroundImage: `url(${obj.logo
-                          .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                          .replace(
-                            '696e-incapital-4gly5z3b00512dc4-1305204328',
-                            '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                          )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                      }
-                      : {}
-                  }
-                ></div>
-                <p className={styles.section_content_invest_item_title}>{obj.title}</p>
-              </div>
-            );
-          })}
+                  className={styles.section_content_invest_item}
+                  key={obj._id}
+                  onClick={() => {
+                    setcurItem(obj);
+                    setvisible(true);
+                  }}
+                >
+                  <div
+                    className={styles.section_content_invest_item_img}
+                    style={
+                      obj.logo
+                        ? {
+                            backgroundImage: `url(${obj.logo
+                              .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                              .replace(
+                                '696e-incapital-4gly5z3b00512dc4-1305204328',
+                                '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                              )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                          }
+                        : {}
+                    }
+                  ></div>
+                  <p className={styles.section_content_invest_item_title}>{obj.title}</p>
+                </div>
+              );
+            })}
           <div className={styles.section_content_invest_item} style={{ borderBottom: 'none' }}></div>
           <div className={styles.section_content_invest_item} style={{ borderBottom: 'none' }}></div>
           <div className={styles.section_content_invest_item} style={{ borderBottom: 'none' }}></div>
@@ -135,21 +136,26 @@ function Home() {
           style={
             contact.invest_contact_bg
               ? {
-                backgroundImage: `url(${contact.invest_contact_bg
-                  .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                  .replace(
-                    '696e-incapital-4gly5z3b00512dc4-1305204328',
-                    '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-              }
+                  backgroundImage: `url(${contact.invest_contact_bg
+                    .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                    .replace(
+                      '696e-incapital-4gly5z3b00512dc4-1305204328',
+                      '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                    )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                }
               : {}
           }
         >
           <div className={styles.section_content3}>
             <div className={styles.section_title}>联系我们</div>
             <div className={styles.section_email_wrapper}>
-              <div className={styles.section_email}>{`公关 ${contact ? contact.email_pr : ''}`}</div>
-              <div className={styles.section_email}>{`发送商业计划书 ${contact ? contact.email_bp : ''}`}</div>
+              <p>关于未来</p>
+              <p>Do more, know more, be more.</p>
+              <p>欢迎联系我们</p>
+              <div className={styles.section_email_wrapper_a}>
+                <a href={`mailto:${contact ? contact.email_bp : ''}`}>BP投递</a>
+                <a href={`mailto:${contact ? contact.email_pr : ''}`}>加入盈动</a>
+              </div>
             </div>
           </div>
         </div>
@@ -165,8 +171,8 @@ function Home() {
               style={
                 curItem.bg_color
                   ? {
-                    backgroundColor: curItem.bg_color,
-                  }
+                      backgroundColor: curItem.bg_color,
+                    }
                   : {}
               }
             >
@@ -174,10 +180,7 @@ function Home() {
                 <img
                   src={`${curItem.logo
                     .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                    .replace(
-                      '696e-incapital-4gly5z3b00512dc4-1305204328',
-                      '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                    )}`}
+                    .replace('696e-incapital-4gly5z3b00512dc4-1305204328', '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la')}`}
                   alt=""
                   className={styles.modal_left_avatar}
                 />
@@ -189,16 +192,16 @@ function Home() {
               style={
                 curItem.bg_img
                   ? {
-                    backgroundImage: `url(${curItem.bg_img
-                      .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                      .replace(
-                        '696e-incapital-4gly5z3b00512dc4-1305204328',
-                        '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                      )}?imageView2/0/format/jpg/interlace/1/q/50|imageslim)`,
-                  }
+                      backgroundImage: `url(${curItem.bg_img
+                        .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                        .replace(
+                          '696e-incapital-4gly5z3b00512dc4-1305204328',
+                          '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                        )}?imageView2/0/format/jpg/interlace/1/q/50|imageslim)`,
+                    }
                   : {
-                    backgroundImage: 'url("/next-ssr/bg-project.jpg")'
-                  }
+                      backgroundImage: 'url("/next-ssr/bg-project.jpg")',
+                    }
               }
             >
               <div className={styles.modal_right_desc}>{curItem.producer}</div>

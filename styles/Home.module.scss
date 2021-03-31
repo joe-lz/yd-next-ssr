@@ -51,7 +51,7 @@
   }
   &_title {
     margin-bottom: 15px;
-    font-size: 50px;
+    font-size: 32px;
     color: white;
     animation: backInUp 0.8s ease forwards;
     // animation-iteration-count: 1;
@@ -60,7 +60,7 @@
   }
   &_desc {
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 18px;
     color: white;
     animation: backInUp 0.8s ease forwards;
     // animation-iteration-count: 1;
@@ -68,7 +68,7 @@
     opacity: 0;
   }
   &_desc2 {
-    font-size: 20px;
+    font-size: 18px;
     color: white;
     animation: backInUp 0.8s ease forwards;
     // animation-iteration-count: 1;
@@ -76,8 +76,25 @@
     opacity: 0;
   }
   .section_email_wrapper {
-    padding-top: 80px;
-    font-weight: 400;
+    padding-top: 30px;
+    p {
+      font-size: 18px;
+      text-align: center;
+      color: white;
+      line-height: 16px;
+
+    }
+    &_a {
+      padding-top: 30px;
+      a {
+        margin: 0 15px;
+        padding: 10px 30px;
+        font-size: 16px;
+        color: white;
+        border: 1px solid white;
+        border-radius: 8px;
+      }
+    }
   }
   .section_email {
     margin-bottom: 15px;
@@ -85,19 +102,11 @@
     color: white;
     text-align: center;
     letter-spacing: 3px;
-    animation: backInUp 0.8s ease forwards;
-    // animation-iteration-count: 1;
-    // animation-fill-mode: forwards;
-    opacity: 0;
   }
   .section_typ2 {
     display: flex;
     font-size: 20px;
     color: white;
-    animation: backInUp 0.8s ease forwards;
-    // animation-iteration-count: 1;
-    // animation-fill-mode: forwards;
-    opacity: 0;
     &_item {
       margin-right: 100px;
     }
