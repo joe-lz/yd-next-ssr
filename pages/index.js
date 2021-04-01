@@ -26,7 +26,7 @@ function Home() {
   return (
     <div className={styles.container}>
       <SeoHead />
-      <NDNavigator />
+      <NDNavigator data={contact}/>
       {index.length > 0 ? (
         index.map((obj, index) => {
           return (
@@ -98,7 +98,7 @@ function Home() {
           <div className={styles.section}></div>
         </>
       )}
-      <NDFooter data={contact} />
+      <NDFooter data={contact}/>
     </div>
   );
 }

@@ -2,7 +2,7 @@
   width: 100vw;
   height: 80px;
   // border-top: 1px solid rgba(0, 0, 0, 0.05);
-  background-color: #4A4A4A;
+  background-color: #4a4a4a;
   .container {
     display: flex;
     justify-content: space-between;
@@ -23,6 +23,20 @@
         margin-left: 100px;
         color: white;
       }
+    }
+  }
+  .links {
+    &_icon {
+      cursor: pointer;
+      margin-right: 15px;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: white;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
   }
 }
