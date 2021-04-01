@@ -42,7 +42,7 @@ function Home() {
       <NDNavigator data={contact} />
       {contact ? (
         <div
-          className={styles.section}
+          className={`${styles.section} ${styles.animation_zoom}`}
           style={
             contact.invest_section1_bg
               ? {
@@ -57,12 +57,12 @@ function Home() {
           }
         >
           <div className={styles.section_content}>
-            <div className={styles.section_desc}>{contact.invest_section1_title1}</div>
-            <div className={styles.section_desc2}>{contact.invest_section1_title2}</div>
+            <div className={`${styles.section_desc} ${styles.animation}`}>{contact.invest_section1_title1}</div>
+            <div className={`${styles.section_desc2} ${styles.animation}`}>{contact.invest_section1_title2}</div>
           </div>
         </div>
       ) : (
-        <div className={styles.section}></div>
+        <div className={`${styles.section} ${styles.animation_zoom}`}></div>
       )}
       <div className={styles.section_list}>
         <div className={styles.section_nav}>
@@ -132,7 +132,7 @@ function Home() {
       </div>
       {contact ? (
         <div
-          className={styles.section}
+          className={`${styles.section} ${styles.animation_zoom}`}
           style={
             contact.invest_contact_bg
               ? {
@@ -160,7 +160,7 @@ function Home() {
           </div>
         </div>
       ) : (
-        <div className={styles.section}></div>
+        <div className={`${styles.section} ${styles.animation_zoom}`}></div>
       )}
       <NDFooter data={contact} />
       <Modal visible={visible} footer={null} onCancel={() => setvisible(false)}>

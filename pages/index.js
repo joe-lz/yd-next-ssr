@@ -15,6 +15,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Controller]);
 
 function Home() {
   const [indexArr, setindexArr] = useState([]);
+  const [curIndex, setcurIndex] = useState(0);
   const [swiper, setswiper] = useState(null);
   const [contact, setcontact] = useState();
   const [controlledSwiper, setControlledSwiper] = useState(null);
@@ -46,13 +47,15 @@ function Home() {
           onInit={(swiper) => {
             setswiper(swiper);
           }}
-        // navigation={{
-        //   nextEl: '.swiper-button-next',
-        //   prevEl: '.swiper-button-prev',
-        // }}
-        // spaceBetween={50}
-        // slidesPerView={3}
-        // onSlideChange={() => console.log('slide change')}
+          // navigation={{
+          //   nextEl: '.swiper-button-next',
+          //   prevEl: '.swiper-button-prev',
+          // }}
+          // spaceBetween={50}
+          // slidesPerView={3}
+          onSlideChange={(e) => {
+            setcurIndex(e.activeIndex);
+          }}
         // onSwiper={(swiper) => console.log(swiper)}
         // pagination={{
         //   el: '.swiper-pagination',
@@ -63,7 +66,7 @@ function Home() {
             return <SwiperSlide className={styles.swiper_item} key={`${index + 1}`}>
               {index === 0 && <div className={styles.header}></div>}
               <div
-                className={styles.section}
+                className={`${styles.section} ${index == curIndex ? styles.animation_zoom : ''}`}
                 style={
                   obj.bg
                     ? {
@@ -78,16 +81,16 @@ function Home() {
                 }
               >
                 <div className={styles[`section_content${index}`]}>
-                  {index != 3  &&<button className={styles.icon_down} onClick={() => {
+                  {index != 3 && <button className={styles.icon_down} onClick={() => {
                     swiper.slideNext();
-                  }} style={{backgroundImage: 'url(/next-ssr/icon_down.png)'}}></button>}
-                  <div className={`${styles.section_title}`} style={index == 2 ? { color: 'black' } : {}}>
+                  }} style={{ backgroundImage: 'url(/next-ssr/icon_down.png)' }}></button>}
+                  <div className={`${styles.section_title} ${index == curIndex ? styles.animation : ''}`} style={index == 2 ? { color: 'black' } : {}}>
                     {obj.title}
                   </div>
-                  <div className={`${styles.section_desc}`} style={index == 2 ? { color: 'black' } : {}}>
+                  <div className={`${styles.section_desc} ${index == curIndex ? styles.animation : ''}`} style={index == 2 ? { color: 'black' } : {}}>
                     {obj.desc}
                   </div>
-                  <div className={`${styles.section_desc}`} style={index == 2 ? { color: 'black' } : {}}>
+                  <div className={`${styles.section_desc} ${index == curIndex ? styles.animation : ''}`} style={index == 2 ? { color: 'black' } : {}}>
                     {obj.desc2}
                   </div>
                   {index == 3 && contact && (

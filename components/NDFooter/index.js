@@ -30,9 +30,8 @@ export default function YDNavigator(props) {
           <div className={styles.links}>
             {links.map((obj, index) => {
               return (
-                <a href={obj.link} target='_blank'><i
+                <a href={obj.link} target='_blank' key={`${index + 1}`}><i
                   className={styles.links_icon}
-                  key={`${index + 1}`}
                   label={obj.title}
                   style={
                     obj.icon

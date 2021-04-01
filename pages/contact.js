@@ -26,7 +26,7 @@ function Home() {
       <NDNavigator data={contact} />
       {contact ? (
         <div
-          className={styles.section}
+          className={`${styles.section} ${styles.animation_zoom}`}
           style={contact.contact_bg ? {
             backgroundImage: `url(${contact.contact_bg
               .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
@@ -37,7 +37,7 @@ function Home() {
           } : {}}
         >
           <div className={styles.section_content4}>
-            <div className={styles.section_title}>联系我们</div>
+            <div className={`${styles.section_title} ${styles.animation}`}>联系我们</div>
             <div className={styles.section_email_wrapper}>
               <p>关于未来</p>
               <p>Do more, know more, be more.</p>
@@ -52,7 +52,7 @@ function Home() {
           </div>
         </div>
       ) : (
-        <div className={styles.section}></div>
+        <div className={`${styles.section} ${styles.animation_zoom}`}></div>
       )}
       <NDFooter data={contact} />
     </div>

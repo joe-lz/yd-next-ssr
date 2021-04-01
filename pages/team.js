@@ -36,22 +36,23 @@ function Home() {
       <NDNavigator data={contact} />
       {contact ? (
         <div
-          className={styles.section}
+          className={`${styles.section} ${styles.animation_zoom}`}
+
           style={
             contact.team_section1_bg
               ? {
-                  backgroundImage: `url(${contact.team_section1_bg
-                    .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                    .replace(
-                      '696e-incapital-4gly5z3b00512dc4-1305204328',
-                      '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                    )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                }
+                backgroundImage: `url(${contact.team_section1_bg
+                  .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                  .replace(
+                    '696e-incapital-4gly5z3b00512dc4-1305204328',
+                    '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+              }
               : {}
           }
         >
           <div className={styles.section_content1}>
-            <div className={styles.section_title}>
+            <div className={`${styles.section_title} ${styles.animation}`}>
               {arr_title.map((obj, index) => {
                 return <span key={`${index + 1}`}>{obj}</span>;
               })}
@@ -59,7 +60,7 @@ function Home() {
           </div>
         </div>
       ) : (
-        <div className={styles.section}></div>
+        <div className={`${styles.section} ${styles.animation_zoom}`}></div>
       )}
 
       {contact ? (
@@ -71,11 +72,11 @@ function Home() {
               src={
                 contact.team_intro_bg
                   ? `${contact.team_intro_bg
-                      .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                      .replace(
-                        '696e-incapital-4gly5z3b00512dc4-1305204328',
-                        '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                      )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim`
+                    .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                    .replace(
+                      '696e-incapital-4gly5z3b00512dc4-1305204328',
+                      '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                    )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim`
                   : ''
               }
             />
@@ -95,13 +96,13 @@ function Home() {
                       style={
                         obj.avatar
                           ? {
-                              backgroundImage: `url(${obj.avatar
-                                .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                                .replace(
-                                  '696e-incapital-4gly5z3b00512dc4-1305204328',
-                                  '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                                )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                            }
+                            backgroundImage: `url(${obj.avatar
+                              .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                              .replace(
+                                '696e-incapital-4gly5z3b00512dc4-1305204328',
+                                '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                              )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                          }
                           : {}
                       }
                     ></div>
@@ -113,21 +114,21 @@ function Home() {
           </div>
         </div>
       ) : (
-        <div className={styles.section}></div>
+        <div className={`${styles.section} ${styles.animation_zoom}`}></div>
       )}
       {contact ? (
         <div
-          className={styles.section}
+          className={`${styles.section} ${styles.animation_zoom}`}
           style={
             contact.team_section3_bg
               ? {
-                  backgroundImage: `url(${contact.team_section3_bg
-                    .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                    .replace(
-                      '696e-incapital-4gly5z3b00512dc4-1305204328',
-                      '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                    )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                }
+                backgroundImage: `url(${contact.team_section3_bg
+                  .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                  .replace(
+                    '696e-incapital-4gly5z3b00512dc4-1305204328',
+                    '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+              }
               : {}
           }
         >
@@ -138,21 +139,21 @@ function Home() {
           </div>
         </div>
       ) : (
-        <div className={styles.section}></div>
+        <div className={`${styles.section} ${styles.animation_zoom}`}></div>
       )}
       {contact ? (
         <div
-          className={styles.section}
+          className={`${styles.section} ${styles.animation_zoom}`}
           style={
             contact.team_contact_bg
               ? {
-                  backgroundImage: `url(${contact.team_contact_bg
-                    .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                    .replace(
-                      '696e-incapital-4gly5z3b00512dc4-1305204328',
-                      '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                    )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                }
+                backgroundImage: `url(${contact.team_contact_bg
+                  .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                  .replace(
+                    '696e-incapital-4gly5z3b00512dc4-1305204328',
+                    '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+              }
               : {}
           }
         >
@@ -170,7 +171,7 @@ function Home() {
           </div>
         </div>
       ) : (
-        <div className={styles.section}></div>
+        <div className={`${styles.section} ${styles.animation_zoom}`}></div>
       )}
       <NDFooter data={contact} />
       <Modal visible={visible} footer={null} onCancel={() => setvisible(false)}>
@@ -182,13 +183,13 @@ function Home() {
                 style={
                   curItem.avatar
                     ? {
-                        backgroundImage: `url(${curItem.avatar
-                          .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                          .replace(
-                            '696e-incapital-4gly5z3b00512dc4-1305204328',
-                            '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                          )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                      }
+                      backgroundImage: `url(${curItem.avatar
+                        .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                        .replace(
+                          '696e-incapital-4gly5z3b00512dc4-1305204328',
+                          '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                        )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                    }
                     : {}
                 }
               ></div>
@@ -200,16 +201,16 @@ function Home() {
               style={
                 curItem.bg_img
                   ? {
-                      backgroundImage: `url(${curItem.bg_img
-                        .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                        .replace(
-                          '696e-incapital-4gly5z3b00512dc4-1305204328',
-                          '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                        )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                    }
+                    backgroundImage: `url(${curItem.bg_img
+                      .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                      .replace(
+                        '696e-incapital-4gly5z3b00512dc4-1305204328',
+                        '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                      )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                  }
                   : {
-                      backgroundImage: 'url("/next-ssr/bg-project.jpg")',
-                    }
+                    backgroundImage: 'url("/next-ssr/bg-project.jpg")',
+                  }
               }
             >
               <div className={styles.modal_right_desc}>{curItem.desc1}</div>

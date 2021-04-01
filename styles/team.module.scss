@@ -2,6 +2,8 @@
   padding-top: 80px;
 }
 .section {
+  transform: scale(1.1);
+
   width: 100%;
   height: 95vh;
   // max-height: 900px;
@@ -33,7 +35,6 @@
     font-size: 32px;
     color: white;
     letter-spacing: 5px;
-    animation: backInUp ease 1s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
     span {
@@ -44,14 +45,12 @@
     margin-bottom: 15px;
     font-size: 18px;
     color: white;
-    animation: backInUp ease 1s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
   }
   &_desc2 {
     font-size: 18px;
     color: white;
-    animation: backInUp ease 1s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
   }
@@ -223,7 +222,13 @@
     }
   }
 }
+.animation {
+  animation: backInUp 0.8s ease forwards;
+}
 
+.animation_zoom {
+  animation: zoom 0.8s ease forwards;
+}
 @keyframes backInUp {
   0% {
     transform: translateY(200px);
@@ -237,5 +242,14 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
