@@ -28,6 +28,11 @@ exports.main = async (event, context) => {
     const res = await getteam(db);
     return res;
   }
+
+  if (event.queryStringParameters && event.queryStringParameters.page === 'links') {
+    const res = await getlinks(db);
+    return res;
+  }
   return {
     event,
     envId: cloud.parseContext(context).namespace,
@@ -55,7 +60,7 @@ async function getinvest(db, id) {
   if (id) {
     res = await collection.where({ type: id }).get();
   } else {
-    res = await collection.where({}).get();
+    res = await collection.where({}).orderBy('sort', 'desc').get();
   }
   return res;
 }
@@ -70,6 +75,13 @@ async function getinvestType(db) {
 // 获取team
 async function getteam(db) {
   const collection = db.collection('official_team');
+  const res = await collection.where({}).get();
+  return res;
+}
+
+// 获取 link
+async function getlinks(db) {
+  const collection = db.collection('official_links');
   const res = await collection.where({}).get();
   return res;
 }

@@ -1,8 +1,20 @@
 import styles from '../../styles/YDFooter.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import { IndexReq } from './../../requests/index';
 
 export default function YDNavigator(props) {
+  const [links, setlinks] = useState([]);
+  useEffect(() => {
+    init();
+  }, []);
+
+  const init = async (value, page) => {
+    const result_links = await IndexReq.getlinks();
+
+    setlinks(result_links);
+  };
   return (
     <footer className={styles.footer}>
       {props.data ? (
