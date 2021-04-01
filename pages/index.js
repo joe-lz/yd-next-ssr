@@ -2,23 +2,31 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { IndexReq } from './../requests/index';
 
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Controller } from 'swiper';
+import { Swiper, SwiperSlide, } from 'swiper/react';
+
+
 import styles from '../styles/Home.module.scss';
 import SeoHead from '../components/SeoHead/';
 import NDNavigator from '../components/NDNavigator/';
 import NDFooter from '../components/NDFooter/';
 
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Controller]);
+
 function Home() {
-  const [index, setindex] = useState([]);
+  const [indexArr, setindexArr] = useState([]);
+  const [swiper, setswiper] = useState(null);
   const [contact, setcontact] = useState();
+  const [controlledSwiper, setControlledSwiper] = useState(null);
 
   useEffect(() => {
     init();
   }, []);
 
   const init = async (value, page) => {
-    const result_index = await IndexReq.getindex();
+    const result_indexArr = await IndexReq.getindex();
+    setindexArr(result_indexArr);
 
-    setindex(result_index);
     const result_contact = await IndexReq.getContact();
     setcontact(result_contact);
   };
@@ -26,16 +34,39 @@ function Home() {
   return (
     <div className={styles.container}>
       <SeoHead />
-      <NDNavigator data={contact}/>
-      {index.length > 0 ? (
-        index.map((obj, index) => {
-          return (
-            <div
-              key={obj._id}
-              className={styles.section}
-              style={
-                obj.bg
-                  ? {
+      <NDNavigator data={contact} />
+      <div className={styles.body}>
+        <Swiper
+          className={styles.swiper}
+          direction='vertical'
+          cssMode={true}
+          mousewheel={true}
+          keyboard={true}
+          controller={{ control: controlledSwiper }}
+          onInit={(swiper) => {
+            setswiper(swiper);
+          }}
+        // navigation={{
+        //   nextEl: '.swiper-button-next',
+        //   prevEl: '.swiper-button-prev',
+        // }}
+        // spaceBetween={50}
+        // slidesPerView={3}
+        // onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // pagination={{
+        //   el: '.swiper-pagination',
+        //   clickable: true,
+        // }}
+        >
+          {indexArr.map((obj, index) => {
+            return <SwiperSlide className={styles.swiper_item} key={`${index + 1}`}>
+              {index === 0 && <div className={styles.header}></div>}
+              <div
+                className={styles.section}
+                style={
+                  obj.bg
+                    ? {
                       backgroundImage: `url(${obj.bg
                         .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
                         .replace(
@@ -43,25 +74,27 @@ function Home() {
                           '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
                         )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
                     }
-                  : {}
-              }
-            >
-              <div className={styles[`section_content${index}`]}>
-                <div className={`${styles.section_title}`} style={index == 2 ? { color: 'black' } : {}}>
-                  {obj.title}
-                </div>
-                <div className={`${styles.section_desc}`} style={index == 2 ? { color: 'black' } : {}}>
-                  {obj.desc}
-                </div>
-                <div className={`${styles.section_desc}`} style={index == 2 ? { color: 'black' } : {}}>
-                  {obj.desc2}
-                </div>
-
-                {index == 3 && contact && (
-                  // <div className={styles.section_email_wrapper}>
-                  //   <div className={styles.section_email}>{`公关 ${contact ? contact.email_pr : ''}`}</div>
-                  //   <div className={styles.section_email}>{`发送商业计划书 ${contact ? contact.email_bp : ''}`}</div>
-                  // </div>
+                    : {}
+                }
+              >
+                <div className={styles[`section_content${index}`]}>
+                  {index != 3  &&<button className={styles.icon_down} onClick={() => {
+                    swiper.slideNext();
+                  }} style={{backgroundImage: 'url(/next-ssr/icon_down.png)'}}></button>}
+                  <div className={`${styles.section_title}`} style={index == 2 ? { color: 'black' } : {}}>
+                    {obj.title}
+                  </div>
+                  <div className={`${styles.section_desc}`} style={index == 2 ? { color: 'black' } : {}}>
+                    {obj.desc}
+                  </div>
+                  <div className={`${styles.section_desc}`} style={index == 2 ? { color: 'black' } : {}}>
+                    {obj.desc2}
+                  </div>
+                  {index == 3 && contact && (
+                    // <div className={styles.section_email_wrapper}>
+                    //   <div className={styles.section_email}>{`公关 ${contact ? contact.email_pr : ''}`}</div>
+                    //   <div className={styles.section_email}>{`发送商业计划书 ${contact ? contact.email_bp : ''}`}</div>
+                    // </div>
                     <div className={styles.section_email_wrapper}>
                       <p>关于未来</p>
                       <p>Do more, know more, be more.</p>
@@ -71,34 +104,29 @@ function Home() {
                         <a href={`mailto:${contact ? contact.email_pr : ''}`}>加入盈动</a>
                       </div>
                     </div>
-                )}
+                  )}
 
-                {/* 基金规模 */}
-                {obj.content_jijin && (
-                  <div className={styles.section_typ2}>
-                    <div className={styles.section_typ2_item}>
-                      <div className={styles.section_typ2_item_title}>基金规模</div>
-                      <div className={styles.section_typ2_item_desc}>{obj.content_jijin}</div>
+                  {/* 基金规模 */}
+                  {obj.content_jijin && (
+                    <div className={styles.section_typ2}>
+                      <div className={styles.section_typ2_item}>
+                        <div className={styles.section_typ2_item_title}>基金规模</div>
+                        <div className={styles.section_typ2_item_desc}>{obj.content_jijin}</div>
+                      </div>
+                      <div className={styles.section_typ2_item}>
+                        <div className={styles.section_typ2_item_title}>项目数量</div>
+                        <div className={styles.section_typ2_item_desc}>{obj.content_xiangmu}</div>
+                      </div>
                     </div>
-                    <div className={styles.section_typ2_item}>
-                      <div className={styles.section_typ2_item_title}>项目数量</div>
-                      <div className={styles.section_typ2_item_desc}>{obj.content_xiangmu}</div>
-                    </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })
-      ) : (
-        <>
-          <div className={styles.section}></div>
-          <div className={styles.section}></div>
-          <div className={styles.section}></div>
-          <div className={styles.section}></div>
-        </>
-      )}
-      <NDFooter data={contact}/>
+
+              {index === 3 && <NDFooter data={contact} />}
+            </SwiperSlide>
+          })}
+        </Swiper>
+      </div>
     </div>
   );
 }

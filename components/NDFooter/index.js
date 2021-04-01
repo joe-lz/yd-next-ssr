@@ -30,23 +30,27 @@ export default function YDNavigator(props) {
           <div className={styles.links}>
             {links.map((obj, index) => {
               return (
-                <i
+                <a href={obj.link} target='_blank'><i
                   className={styles.links_icon}
                   key={`${index + 1}`}
                   label={obj.title}
                   style={
                     obj.icon
                       ? {
-                          backgroundImage: `url(${obj.icon
-                            .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                            .replace(
-                              '696e-incapital-4gly5z3b00512dc4-1305204328',
-                              '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                            )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                        }
+                        backgroundImage: `url(${obj.icon
+                          .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                          .replace(
+                            '696e-incapital-4gly5z3b00512dc4-1305204328',
+                            '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                          )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                      }
                       : {}
                   }
                 ></i>
+                  {obj.img && <div className={styles.qrcode}>
+                    <img src={obj.img.replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                      .replace('696e-incapital-4gly5z3b00512dc4-1305204328', '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la')}></img></div>}
+                </a>
               );
             })}
           </div>

@@ -24,7 +24,6 @@ export default function SeoHead({
       <meta http-equiv="Window-target" content="_top" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-title" content="jeodiong" />
-      <link rel="stylesheet" href="//at.alicdn.com/t/font_118790_01ph540nsyn6.js"/>
       {children}
     </Head>
   );

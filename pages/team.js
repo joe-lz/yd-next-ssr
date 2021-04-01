@@ -33,7 +33,7 @@ function Home() {
   return (
     <div className={styles.container}>
       <SeoHead />
-      <NDNavigator />
+      <NDNavigator data={contact} />
       {contact ? (
         <div
           className={styles.section}
