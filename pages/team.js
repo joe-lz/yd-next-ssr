@@ -259,7 +259,12 @@ function Home() {
                       )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
                   }
                   : {
-                    backgroundImage: 'url("/next-ssr/bg-project.jpg")',
+                    backgroundImage: `url("${contact ? contact.team_intro_bg.replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                      .replace(
+                        '696e-incapital-4gly5z3b00512dc4-1305204328',
+                        '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                      ) : ''}?imageView2/0/format/jpg/interlace/1/q/80|imageslim")`,
+
                   }
               }
             >

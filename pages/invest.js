@@ -46,13 +46,13 @@ function Home() {
           style={
             contact.invest_section1_bg
               ? {
-                  backgroundImage: `url(${contact.invest_section1_bg
-                    .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                    .replace(
-                      '696e-incapital-4gly5z3b00512dc4-1305204328',
-                      '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                    )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                }
+                backgroundImage: `url(${contact.invest_section1_bg
+                  .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                  .replace(
+                    '696e-incapital-4gly5z3b00512dc4-1305204328',
+                    '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+              }
               : {}
           }
         >
@@ -110,13 +110,13 @@ function Home() {
                     style={
                       obj.logo
                         ? {
-                            backgroundImage: `url(${obj.logo
-                              .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                              .replace(
-                                '696e-incapital-4gly5z3b00512dc4-1305204328',
-                                '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                              )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                          }
+                          backgroundImage: `url(${obj.logo
+                            .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                            .replace(
+                              '696e-incapital-4gly5z3b00512dc4-1305204328',
+                              '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                            )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                        }
                         : {}
                     }
                   ></div>
@@ -136,13 +136,13 @@ function Home() {
           style={
             contact.invest_contact_bg
               ? {
-                  backgroundImage: `url(${contact.invest_contact_bg
-                    .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                    .replace(
-                      '696e-incapital-4gly5z3b00512dc4-1305204328',
-                      '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                    )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                }
+                backgroundImage: `url(${contact.invest_contact_bg
+                  .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                  .replace(
+                    '696e-incapital-4gly5z3b00512dc4-1305204328',
+                    '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+              }
               : {}
           }
         >
@@ -171,8 +171,8 @@ function Home() {
               style={
                 curItem.bg_color
                   ? {
-                      backgroundColor: curItem.bg_color,
-                    }
+                    backgroundColor: curItem.bg_color,
+                  }
                   : {}
               }
             >
@@ -192,16 +192,21 @@ function Home() {
               style={
                 curItem.bg_img
                   ? {
-                      backgroundImage: `url(${curItem.bg_img
-                        .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                        .replace(
-                          '696e-incapital-4gly5z3b00512dc4-1305204328',
-                          '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                        )}?imageView2/0/format/jpg/interlace/1/q/50|imageslim)`,
-                    }
+                    backgroundImage: `url(${curItem.bg_img
+                      .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                      .replace(
+                        '696e-incapital-4gly5z3b00512dc4-1305204328',
+                        '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                      )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                  }
                   : {
-                      backgroundImage: 'url("/next-ssr/bg-project.jpg")',
-                    }
+                    backgroundImage: `url("${contact ? contact.team_intro_bg.replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                      .replace(
+                        '696e-incapital-4gly5z3b00512dc4-1305204328',
+                        '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                      ) : ''}?imageView2/0/format/jpg/interlace/1/q/80|imageslim")`,
+
+                  }
               }
             >
               <div className={styles.modal_right_desc}>{curItem.producer}</div>
