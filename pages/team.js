@@ -2,6 +2,9 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { IndexReq } from './../requests/index';
 import { Modal } from 'antd';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Controller } from 'swiper';
+import { Swiper, SwiperSlide, } from 'swiper/react';
+
 
 import styles from '../styles/team.module.scss';
 import SeoHead from '../components/SeoHead/';
@@ -14,6 +17,7 @@ function Home() {
 
   const [team, setteam] = useState([]);
   const [contact, setcontact] = useState();
+  const [teamFinal, setteamFinal] = useState([]);
 
   useEffect(() => {
     init();
@@ -25,11 +29,32 @@ function Home() {
 
     const result_team = await IndexReq.getteam();
     setteam(result_team);
+
+    setteamFinal(groupArray(result_team, 4));
   };
+
   let arr_title = [];
   if (contact) {
     arr_title = contact.team_section1_title.split(',');
   }
+
+  function groupArray(data, cols) {
+    const r = data.reduce((r, t) => {
+      r.current.push(t);
+      if (r.current.length === cols) {
+        r.list.push(r.current);
+        r.current = [];
+      }
+      return r;
+    }, { list: [], current: [] });
+
+    if (r.current.length) {
+      r.list.push(r.current);
+    }
+
+    return r.list;
+  }
+  console.log(teamFinal);
   return (
     <div className={styles.container}>
       <SeoHead />
@@ -67,7 +92,7 @@ function Home() {
         <div className={styles.section_team}>
           <p className={styles.section_team_title}>团队介绍</p>
           <div className={styles.section_team_content}>
-            <img
+            {/* <img
               className={styles.section_team_content_bg}
               src={
                 contact.team_intro_bg
@@ -79,7 +104,7 @@ function Home() {
                     )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim`
                   : ''
               }
-            />
+            /> */}
             <div className={styles.section_team_content_scroll}>
               {team.map((obj) => {
                 return (
@@ -110,7 +135,32 @@ function Home() {
                   </div>
                 );
               })}
+              <div className={styles.section_team_content_item_holder}></div>
+              <div className={styles.section_team_content_item_holder}></div>
+              <div className={styles.section_team_content_item_holder}></div>
+              <div className={styles.section_team_content_item_holder}></div>
             </div>
+            {/* <Swiper
+              className={styles.swiper}
+              // mousewheel={true}
+              // keyboard={true}
+              onInit={(swiper) => {
+              }}
+              navigation={{
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              }}
+              pagination={{
+                el: '.swiper-pagination',
+                clickable: true,
+              }}
+            >              
+            {teamFinal.map((obj, index) => {
+              return <SwiperSlide className={styles.swiper_item} key={`${index + 1}`}>
+                <div>csdccsdc</div>
+              </SwiperSlide>
+            })}</Swiper> */}
+
           </div>
         </div>
       ) : (

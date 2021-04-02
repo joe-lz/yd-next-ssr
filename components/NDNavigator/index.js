@@ -31,8 +31,8 @@ export default function YDNavigator(props) {
           <Link href="/contact">
             <a className={router.pathname == '/contact' ? styles.link_active : styles.link}>联系</a>
           </Link>
-          <a className={styles.link} href="https://incapital-4gly5z3b00512dc4-1305204328.tcloudbaseapp.com/tcb-cms/" target="_blank">
-            登录
+          <a className={`${styles.link} ${styles.link_login}`} href="https://incapital-4gly5z3b00512dc4-1305204328.tcloudbaseapp.com/tcb-cms/" target="_blank">
+            管理
           </a>
         </div>
       </div>

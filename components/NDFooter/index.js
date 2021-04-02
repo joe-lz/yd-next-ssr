@@ -30,7 +30,7 @@ export default function YDNavigator(props) {
           <div className={styles.links}>
             {links.map((obj, index) => {
               return (
-                <a href={obj.link} target='_blank' key={`${index + 1}`}><i
+                <a href={obj.link ? obj.link : '/'} target='_blank' key={`${index + 1}`}><i
                   className={styles.links_icon}
                   label={obj.title}
                   style={
@@ -41,7 +41,8 @@ export default function YDNavigator(props) {
                           .replace(
                             '696e-incapital-4gly5z3b00512dc4-1305204328',
                             '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                          )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                          )})`,
+                          backgroundColor: obj.bg
                       }
                       : {}
                   }

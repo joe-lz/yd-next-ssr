@@ -41,8 +41,8 @@ function Home() {
           className={styles.swiper}
           direction='vertical'
           cssMode={true}
-          mousewheel={true}
-          keyboard={true}
+          // mousewheel={true}
+          // keyboard={true}
           controller={{ control: controlledSwiper }}
           onInit={(swiper) => {
             setswiper(swiper);
@@ -66,7 +66,9 @@ function Home() {
             return <SwiperSlide className={styles.swiper_item} key={`${index + 1}`}>
               {index === 0 && <div className={styles.header}></div>}
               <div
-                className={`${styles.section} ${index == curIndex ? styles.animation_zoom : ''}`}
+                className={`${styles.section}`}
+              ><div
+                className={`${styles.section_bg} ${index == curIndex ? styles.animation_zoom : ''}`}
                 style={
                   obj.bg
                     ? {
@@ -80,6 +82,7 @@ function Home() {
                     : {}
                 }
               >
+                </div>
                 <div className={styles[`section_content${index}`]}>
                   {index != 3 && <button className={styles.icon_down} onClick={() => {
                     swiper.slideNext();

@@ -213,15 +213,15 @@
   }
 }
 .animation {
-  animation: backInUp 0.8s ease forwards;
+  animation: backInUp 1.2s ease forwards;
 }
 
 .animation_zoom {
-  animation: zoom 0.8s ease forwards;
+  animation: zoom 1.2s ease forwards;
 }
 @keyframes backInUp {
   0% {
-    transform: translateY(200px);
+    transform: translateY(50px);
     opacity: 0.7;
   }
 
