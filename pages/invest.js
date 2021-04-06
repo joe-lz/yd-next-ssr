@@ -149,9 +149,9 @@ function Home() {
           <div className={styles.section_content3}>
             <div className={styles.section_title}>联系我们</div>
             <div className={styles.section_email_wrapper}>
-              <p>关于未来</p>
-              <p>Do more, know more, be more.</p>
-              <p>欢迎联系我们</p>
+              <p>{contact.contact_us_desc1}</p>
+              <p>{contact.contact_us_desc2}</p>
+              <p>{contact.contact_us_desc3}</p>
               <div className={styles.section_email_wrapper_a}>
                 <a href={`mailto:${contact ? contact.email_bp : ''}`}>BP投递</a>
                 <a href={`mailto:${contact ? contact.email_pr : ''}`}>加入盈动</a>
@@ -200,7 +200,7 @@ function Home() {
                       )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
                   }
                   : {
-                    backgroundImage: `url("${contact ? contact.team_intro_bg.replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                    backgroundImage: `url("${contact ? contact.invest_alert_right_bg.replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
                       .replace(
                         '696e-incapital-4gly5z3b00512dc4-1305204328',
                         '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
@@ -213,7 +213,9 @@ function Home() {
               <div className={styles.modal_right_title}>{curItem.username}</div>
               <div className={styles.modal_right_desc}>{curItem.invest_time}</div>
               {curItem.site && <div className={styles.modal_right_title}>官网</div>}
-              <div className={styles.modal_right_desc}>{curItem.site}</div>
+              <div className={styles.modal_right_desc}>
+                <a href={curItem.site} target='_blank'>{curItem.site}</a>
+              </div>
             </div>
           </div>
         )}

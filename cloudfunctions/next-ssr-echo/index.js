@@ -82,6 +82,6 @@ async function getteam(db) {
 // 获取 link
 async function getlinks(db) {
   const collection = db.collection('official_links');
-  const res = await collection.where({}).get();
+  const res = await collection.where({}).orderBy('sort', 'desc').get();
   return res;
 }

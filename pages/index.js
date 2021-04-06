@@ -102,9 +102,9 @@ function Home() {
                     //   <div className={styles.section_email}>{`发送商业计划书 ${contact ? contact.email_bp : ''}`}</div>
                     // </div>
                     <div className={styles.section_email_wrapper}>
-                      <p>关于未来</p>
-                      <p>Do more, know more, be more.</p>
-                      <p>欢迎联系我们</p>
+                      <p>{contact.contact_us_desc1}</p>
+                      <p>{contact.contact_us_desc2}</p>
+                      <p>{contact.contact_us_desc3}</p>
                       <div className={styles.section_email_wrapper_a}>
                         <a href={`mailto:${contact ? contact.email_bp : ''}`}>BP投递</a>
                         <a href={`mailto:${contact ? contact.email_pr : ''}`}>加入盈动</a>
