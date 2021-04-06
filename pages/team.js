@@ -71,7 +71,7 @@ function Home() {
                   .replace(
                     '696e-incapital-4gly5z3b00512dc4-1305204328',
                     '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                  )}?imageView2/0/format/jpg/interlace/1/q/90|imageslim)`,
               }
               : {}
           }
@@ -126,7 +126,7 @@ function Home() {
                               .replace(
                                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                              )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                              )}?imageView2/0/format/jpg/interlace/1/q/90|imageslim)`,
                           }
                           : {}
                       }
@@ -177,7 +177,7 @@ function Home() {
                   .replace(
                     '696e-incapital-4gly5z3b00512dc4-1305204328',
                     '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                  )}?imageView2/0/format/jpg/interlace/1/q/90|imageslim)`,
               }
               : {}
           }
@@ -202,7 +202,7 @@ function Home() {
                   .replace(
                     '696e-incapital-4gly5z3b00512dc4-1305204328',
                     '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                  )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                  )}?imageView2/0/format/jpg/interlace/1/q/90|imageslim)`,
               }
               : {}
           }
@@ -238,7 +238,7 @@ function Home() {
                         .replace(
                           '696e-incapital-4gly5z3b00512dc4-1305204328',
                           '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                        )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                        )}?imageView2/0/format/jpg/interlace/1/q/90|imageslim)`,
                     }
                     : {}
                 }
@@ -256,14 +256,14 @@ function Home() {
                       .replace(
                         '696e-incapital-4gly5z3b00512dc4-1305204328',
                         '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                      )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                      )}?imageView2/0/format/jpg/interlace/1/q/90|imageslim)`,
                   }
                   : {
                     backgroundImage: `url("${contact ? contact.team_intro_bg.replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
                       .replace(
                         '696e-incapital-4gly5z3b00512dc4-1305204328',
                         '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                      ) : ''}?imageView2/0/format/jpg/interlace/1/q/80|imageslim")`,
+                      ) : ''}?imageView2/0/format/jpg/interlace/1/q/90|imageslim")`,
 
                   }
               }
