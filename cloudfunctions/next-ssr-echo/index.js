@@ -75,7 +75,7 @@ async function getinvestType(db) {
 // 获取team
 async function getteam(db) {
   const collection = db.collection('official_team');
-  const res = await collection.where({}).get();
+  const res = await collection.where({}).orderBy('sort', 'desc').get();
   return res;
 }
 

@@ -57,7 +57,7 @@ function Home() {
           }
         >
           <div className={styles.section_content}>
-            <div className={`${styles.section_desc} ${styles.animation}`}>{contact.invest_section1_title1}</div>
+            <div className={`${styles.section_desc} ${styles.animation}`} style={{marginTop: '-80px'}}>{contact.invest_section1_title1}</div>
             <div className={`${styles.section_desc2} ${styles.animation}`}>{contact.invest_section1_title2}</div>
           </div>
         </div>

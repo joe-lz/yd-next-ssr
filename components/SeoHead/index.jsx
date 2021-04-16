@@ -11,7 +11,7 @@ export default function SeoHead({
       <title>{title}</title>
       <meta name="keywords" content={keywords} />
       <meta name="description" content={description} />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/next-ssr/icon.png" />
 
       <meta name="renderer" content="webkit" />
       <meta name="author" content="jeodiong@hotmail.com" />
