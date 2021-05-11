@@ -82,6 +82,7 @@ function Home() {
                 return <span key={`${index + 1}`}>{obj}</span>;
               })}
             </div>
+            <p className={styles.team_section1_desc}>{contact.team_section1_desc}</p>
           </div>
         </div>
       ) : (

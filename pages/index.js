@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { IndexReq } from './../requests/index';
 
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Controller } from 'swiper';
-import { Swiper, SwiperSlide, } from 'swiper/react';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from '../styles/Home.module.scss';
 import SeoHead from '../components/SeoHead/';
@@ -39,7 +38,7 @@ function Home() {
       <div className={styles.body}>
         <Swiper
           className={styles.swiper}
-          direction='vertical'
+          direction="vertical"
           cssMode={true}
           // mousewheel={true}
           // keyboard={true}
@@ -56,64 +55,78 @@ function Home() {
           onSlideChange={(e) => {
             setcurIndex(e.activeIndex);
           }}
-        // onSwiper={(swiper) => console.log(swiper)}
-        // pagination={{
-        //   el: '.swiper-pagination',
-        //   clickable: true,
-        // }}
+          // onSwiper={(swiper) => console.log(swiper)}
+          // pagination={{
+          //   el: '.swiper-pagination',
+          //   clickable: true,
+          // }}
         >
           {indexArr.map((obj, index) => {
-            return <SwiperSlide className={styles.swiper_item} key={`${index + 1}`}>
-              {index === 0 && <div className={styles.header}></div>}
-              <div
-                className={`${styles.section}`}
-              ><div
-                className={`${styles.section_bg} ${index == curIndex ? styles.animation_zoom : ''}`}
-                style={
-                  obj.bg
-                    ? {
-                      backgroundImage: `url(${obj.bg
-                        .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                        .replace(
-                          '696e-incapital-4gly5z3b00512dc4-1305204328',
-                          '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                        )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+            return (
+              <SwiperSlide className={styles.swiper_item} key={`${index + 1}`}>
+                {index === 0 && <div className={styles.header}></div>}
+                <div className={`${styles.section}`}>
+                  <div
+                    className={`${styles.section_bg} ${index == curIndex ? styles.animation_zoom : ''}`}
+                    style={
+                      obj.bg
+                        ? {
+                            backgroundImage: `url(${obj.bg
+                              .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                              .replace(
+                                '696e-incapital-4gly5z3b00512dc4-1305204328',
+                                '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                              )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                          }
+                        : {}
                     }
-                    : {}
-                }
-              >
-                </div>
-                <div className={styles[`section_content${index}`]}>
-                  {index != 3 && <button className={styles.icon_down} onClick={() => {
-                    swiper.slideNext();
-                  }} style={{ backgroundImage: 'url(/next-ssr/icon_down.png)' }}></button>}
-                  <div className={`${styles.section_title} ${index == curIndex ? styles.animation : ''}`} style={index == 2 ? { color: 'black' } : {}}>
-                    {obj.title}
-                  </div>
-                  <div className={`${styles.section_desc} ${index == curIndex ? styles.animation : ''}`} style={index == 2 ? { color: 'black' } : {}}>
-                    {obj.desc}
-                  </div>
-                  <div className={`${styles.section_desc} ${index == curIndex ? styles.animation : ''}`} style={index == 2 ? { color: 'black' } : {}}>
-                    {obj.desc2}
-                  </div>
-                  {index == 3 && contact && (
-                    // <div className={styles.section_email_wrapper}>
-                    //   <div className={styles.section_email}>{`公关 ${contact ? contact.email_pr : ''}`}</div>
-                    //   <div className={styles.section_email}>{`发送商业计划书 ${contact ? contact.email_bp : ''}`}</div>
-                    // </div>
-                    <div className={styles.section_email_wrapper}>
-                      <p>{contact.contact_us_desc1}</p>
-                      <p>{contact.contact_us_desc2}</p>
-                      <p>{contact.contact_us_desc3}</p>
-                      <div className={styles.section_email_wrapper_a}>
-                        <a href={`mailto:${contact ? contact.email_bp : ''}`}>BP投递</a>
-                        <a href={`mailto:${contact ? contact.email_pr : ''}`}>加入盈动</a>
-                      </div>
+                  ></div>
+                  <div className={styles[`section_content${index}`]}>
+                    {index != 3 && (
+                      <button
+                        className={styles.icon_down}
+                        onClick={() => {
+                          swiper.slideNext();
+                        }}
+                        style={{ backgroundImage: 'url(/next-ssr/icon_down.png)' }}
+                      ></button>
+                    )}
+                    <div
+                      className={`${styles.section_title} ${index == curIndex ? styles.animation : ''}`}
+                      style={index == 2 ? { color: 'black' } : {}}
+                    >
+                      {obj.title}
                     </div>
-                  )}
+                    <div
+                      className={`${styles.section_desc} ${index == curIndex ? styles.animation : ''}`}
+                      style={index == 2 ? { color: 'black' } : {}}
+                    >
+                      {obj.desc}
+                    </div>
+                    <div
+                      className={`${styles.section_desc} ${index == curIndex ? styles.animation : ''}`}
+                      style={index == 2 ? { color: 'black' } : {}}
+                    >
+                      {obj.desc2}
+                    </div>
+                    {index == 3 && contact && (
+                      // <div className={styles.section_email_wrapper}>
+                      //   <div className={styles.section_email}>{`公关 ${contact ? contact.email_pr : ''}`}</div>
+                      //   <div className={styles.section_email}>{`发送商业计划书 ${contact ? contact.email_bp : ''}`}</div>
+                      // </div>
+                      <div className={styles.section_email_wrapper}>
+                        <p>{contact.contact_us_desc1}</p>
+                        <p>{contact.contact_us_desc2}</p>
+                        <p>{contact.contact_us_desc3}</p>
+                        <div className={styles.section_email_wrapper_a}>
+                          <a href={`mailto:${contact ? contact.email_bp : ''}`}>BP投递</a>
+                          <a href={`mailto:${contact ? contact.email_pr : ''}`}>加入盈动</a>
+                        </div>
+                      </div>
+                    )}
 
-                  {/* 基金规模 */}
-                  {obj.content_jijin && (
+                    {/* 基金规模 */}
+                    {/* {obj.content_jijin && (
                     <div className={styles.section_typ2}>
                       <div className={styles.section_typ2_item}>
                         <div className={styles.section_typ2_item_title}>基金规模</div>
@@ -124,12 +137,39 @@ function Home() {
                         <div className={styles.section_typ2_item_desc}>{obj.content_xiangmu}</div>
                       </div>
                     </div>
-                  )}
+                  )} */}
+                    <div className={styles.item_wrapper}>
+                      {obj.item1_icon && (
+                        <div className={styles.item_icon}>
+                          <img className={styles.item_icon_img} src={`${obj.item1_icon
+                              .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                              .replace(
+                                '696e-incapital-4gly5z3b00512dc4-1305204328',
+                                '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                              )}?imageView2/0/interlace/1/q/80|imageslim`} alt="" />
+                          <p className={styles.item_title}>{obj.item1_title}</p>
+                          <p className={styles.item_desc}>{obj.item1_desc}</p>
+                        </div>
+                      )}
+                      {obj.item2_icon && (
+                        <div className={styles.item_icon}>
+                          <img className={styles.item_icon_img} src={`${obj.item2_icon
+                              .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                              .replace(
+                                '696e-incapital-4gly5z3b00512dc4-1305204328',
+                                '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                              )}?imageView2/0/interlace/1/q/80|imageslim`} alt="" />
+                          <p className={styles.item_title}>{obj.item2_title}</p>
+                          <p className={styles.item_desc}>{obj.item2_desc}</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              {index === 3 && <NDFooter data={contact} />}
-            </SwiperSlide>
+                {index === 3 && <NDFooter data={contact} />}
+              </SwiperSlide>
+            );
           })}
         </Swiper>
       </div>

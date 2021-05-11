@@ -37,17 +37,18 @@ function Home() {
           } : {}}
         >
           <div className={styles.section_content4}>
-            <div className={`${styles.section_title} ${styles.animation}`}>联系我们</div>
+            <img src="./slogan.png" alt="" className={styles.slogan}/>
+            <img src="./wechat.png" alt="" className={styles.wechat}/>
+            <div className={`${styles.desc}`}>欢迎联系我们</div>
+            {/* <div className={`${styles.section_title} ${styles.animation}`}>联系我们</div> */}
             <div className={styles.section_email_wrapper}>
-              <p>{contact.contact_us_desc1}</p>
+              {/* <p>{contact.contact_us_desc1}</p>
               <p>{contact.contact_us_desc2}</p>
-              <p>{contact.contact_us_desc3}</p>
+              <p>{contact.contact_us_desc3}</p> */}
               <div className={styles.section_email_wrapper_a}>
                 <a href={`mailto:${contact ? contact.email_bp : ''}`}>BP投递</a>
                 <a href={`mailto:${contact ? contact.email_pr : ''}`}>加入盈动</a>
               </div>
-              {/* <div className={styles.section_email}>{`公关 ${contact ? contact.email_pr : ''}`}</div>
-              <div className={styles.section_email}>{`发送商业计划书 ${contact ? contact.email_bp : ''}`}</div> */}
             </div>
           </div>
         </div>
