@@ -167,7 +167,7 @@ function Home() {
       ) : (
         <div className={`${styles.section} ${styles.animation_zoom}`}></div>
       )}
-      {contact ? (
+      {contact && contact.team_section3_show ? (
         <div
           className={`${styles.section} ${styles.animation_zoom}`}
           style={
@@ -190,7 +190,9 @@ function Home() {
           </div>
         </div>
       ) : (
-        <div className={`${styles.section} ${styles.animation_zoom}`}></div>
+        // <div className={`${styles.section} ${styles.animation_zoom}`}></div>
+        <>
+        </>
       )}
       {contact ? (
         <div

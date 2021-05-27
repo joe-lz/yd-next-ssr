@@ -17,6 +17,7 @@ function Home() {
   const [curIndex, setcurIndex] = useState(0);
   const [swiper, setswiper] = useState(null);
   const [contact, setcontact] = useState();
+  const [honer, sethoner] = useState([]);
   const [controlledSwiper, setControlledSwiper] = useState(null);
 
   useEffect(() => {
@@ -29,6 +30,8 @@ function Home() {
 
     const result_contact = await IndexReq.getContact();
     setcontact(result_contact);
+    const result_honer = await IndexReq.gethoner();
+    sethoner(result_honer);
   };
 
   return (
@@ -62,7 +65,7 @@ function Home() {
           // }}
         >
           {indexArr.map((obj, index) => {
-            return (
+            const item = (
               <SwiperSlide className={styles.swiper_item} key={`${index + 1}`}>
                 {index === 0 && <div className={styles.header}></div>}
                 <div className={`${styles.section}`}>
@@ -82,7 +85,7 @@ function Home() {
                     }
                   ></div>
                   <div className={styles[`section_content${index}`]}>
-                    {index != 3 && (
+                    {index != indexArr.length - 1 && (
                       <button
                         className={styles.icon_down}
                         onClick={() => {
@@ -109,11 +112,7 @@ function Home() {
                     >
                       {obj.desc2}
                     </div>
-                    {index == 3 && contact && (
-                      // <div className={styles.section_email_wrapper}>
-                      //   <div className={styles.section_email}>{`公关 ${contact ? contact.email_pr : ''}`}</div>
-                      //   <div className={styles.section_email}>{`发送商业计划书 ${contact ? contact.email_bp : ''}`}</div>
-                      // </div>
+                    {index == indexArr.length - 1 && contact && (
                       <div className={styles.section_email_wrapper}>
                         <p>{contact.contact_us_desc1}</p>
                         <p>{contact.contact_us_desc2}</p>
@@ -141,24 +140,32 @@ function Home() {
                     <div className={styles.item_wrapper}>
                       {obj.item1_icon && (
                         <div className={styles.item_icon}>
-                          <img className={styles.item_icon_img} src={`${obj.item1_icon
+                          <img
+                            className={styles.item_icon_img}
+                            src={`${obj.item1_icon
                               .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
                               .replace(
                                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                              )}?imageView2/0/interlace/1/q/80|imageslim`} alt="" />
+                              )}?imageView2/0/interlace/1/q/80|imageslim`}
+                            alt=""
+                          />
                           <p className={styles.item_title}>{obj.item1_title}</p>
                           <p className={styles.item_desc}>{obj.item1_desc}</p>
                         </div>
                       )}
                       {obj.item2_icon && (
                         <div className={styles.item_icon}>
-                          <img className={styles.item_icon_img} src={`${obj.item2_icon
+                          <img
+                            className={styles.item_icon_img}
+                            src={`${obj.item2_icon
                               .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
                               .replace(
                                 '696e-incapital-4gly5z3b00512dc4-1305204328',
                                 '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                              )}?imageView2/0/interlace/1/q/80|imageslim`} alt="" />
+                              )}?imageView2/0/interlace/1/q/80|imageslim`}
+                            alt=""
+                          />
                           <p className={styles.item_title}>{obj.item2_title}</p>
                           <p className={styles.item_desc}>{obj.item2_desc}</p>
                         </div>
@@ -167,9 +174,47 @@ function Home() {
                   </div>
                 </div>
 
-                {index === 3 && <NDFooter data={contact} />}
+                {index === indexArr.length - 1 && <NDFooter data={contact} />}
               </SwiperSlide>
             );
+            if (obj.show) {
+              if (index == 2) {
+                return (
+                  <>
+                    <SwiperSlide className={styles.swiper_item}>
+                      <div className={`${styles.section}`}>
+                        <div
+                          className={`${styles.section_bg} ${index == curIndex ? styles.animation_zoom : ''}`}
+                          style={
+                            contact
+                              ? {
+                                  backgroundImage: `url(${contact.honer_bg
+                                    .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                                    .replace(
+                                      '696e-incapital-4gly5z3b00512dc4-1305204328',
+                                      '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                                    )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                                }
+                              : {}
+                          }
+                        ></div>
+                        <div className={`${styles.section_honer}`}>
+                          <div className={`${styles.section_honer_container}`}>
+                            <p className={styles.title}>盈动荣誉</p>
+                            {honer.map((obj) => {
+                              return <p>{obj.title}</p>;
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                    {item}
+                  </>
+                );
+              } else {
+                return item;
+              }
+            }
           })}
         </Swiper>
       </div>

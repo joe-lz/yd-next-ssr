@@ -25,6 +25,20 @@ export default function SeoHead({
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-title" content="jeodiong" />
       {children}
+      {/* Global Site Tag (gtag.js) - Google Analytics */}
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=GTM-MCP229B`} />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'GTM-MCP229B', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
     </Head>
   );
 }

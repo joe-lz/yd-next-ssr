@@ -80,4 +80,18 @@ export class IndexReq {
     const axiosRes = await axios(config);
     return axiosRes.data.data;
   }
+
+
+  static async gethoner(params) {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'get',
+      url: `${baseUrl}?page=honer`,
+      data: params,
+    };
+    const axiosRes = await axios(config);
+    return axiosRes.data.data;
+  }
 }

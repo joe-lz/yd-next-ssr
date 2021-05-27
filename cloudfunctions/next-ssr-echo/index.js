@@ -33,6 +33,11 @@ exports.main = async (event, context) => {
     const res = await getlinks(db);
     return res;
   }
+
+  if (event.queryStringParameters && event.queryStringParameters.page === 'honer') {
+    const res = await gethoner(db);
+    return res;
+  }
   return {
     event,
     envId: cloud.parseContext(context).namespace,
@@ -82,6 +87,13 @@ async function getteam(db) {
 // 获取 link
 async function getlinks(db) {
   const collection = db.collection('official_links');
+  const res = await collection.where({}).orderBy('sort', 'desc').get();
+  return res;
+}
+
+// 获取 link
+async function gethoner(db) {
+  const collection = db.collection('official_honer');
   const res = await collection.where({}).orderBy('sort', 'desc').get();
   return res;
 }
