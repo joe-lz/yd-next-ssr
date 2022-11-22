@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     const result_indexArr = await IndexReq.getindex();
 
-    result_indexArr.slice(2, 0, { type: 'honor' })
+    // result_indexArr.splice(4, 0, { type: 'honor' })
 
     const result_contact = await IndexReq.getContact();
 
