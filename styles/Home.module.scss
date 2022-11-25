@@ -79,6 +79,18 @@
       width: 100%;
       height: 100%;
     }
+    &_content4 {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      max-width: 1300px;
+      width: 100%;
+      height: 100%;
+    }
     &_title {
       margin-bottom: 15px;
       font-size: 32px;
@@ -235,9 +247,12 @@
     &_content0,
     &_content1,
     &_content2,
-    &_content3 {
+    &_content3
+    &__content4
+    &__content5 {
       padding-left: 30px;
       padding-right: 30px;
+      height: 100%;
     }
   }
   .item_wrapper {

@@ -6,8 +6,8 @@
   width: 100vw;
   height: 80px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  backdrop-filter: saturate(180%) blur(6px);
-  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: saturate(180%) blur(30px);
+  background-color: rgba(255, 255, 255, 0.8);
   .container {
     display: flex;
     justify-content: space-between;
@@ -26,16 +26,18 @@
       .link {
         font-size: 18px;
         margin-left: 130px;
-        color: black;
+        // color: black;
+        color: #999;
+        font-weight: 400;
         &:hover {
-          // font-weight: bold;
+          color: black;
+          font-weight: bold;
         }
         &_active {
-          // font-weight: bold;
+          font-weight: bold;
           font-size: 18px;
           margin-left: 130px;
-          // color: black;
-          color: #999;
+          color: black;
         }
       }
       .link_login {

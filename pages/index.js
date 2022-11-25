@@ -11,6 +11,7 @@ import styles from '../styles/Home.module.scss';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Controller]);
 
 function Home(props) {
+  console.log(props);
   const [curIndex, setcurIndex] = useState(0);
   const [swiper, setswiper] = useState(null);
   const [controlledSwiper, setControlledSwiper] = useState(null);
@@ -72,38 +73,36 @@ function Home(props) {
           {indexArr.map((obj, index) => {
             let item = null;
             if (obj.type == 'honor') {
-              item = <>
-                <SwiperSlide className={styles.swiper_item}>
-                  <div className={`${styles.section}`}>
-                    <div
-                      className={`${styles.section_bg} ${index == curIndex ? styles.animation_zoom : ''}`}
-                      style={
-                        contact
-                          ? {
-                            backgroundImage: `url(${contact.honer_bg
-                              .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
-                              .replace(
-                                '696e-incapital-4gly5z3b00512dc4-1305204328',
-                                '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
-                              )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
-                          }
-                          : {}
-                      }
-                    ></div>
-                    <div className={`${styles.section_honer}`}>
-                      <div className={`${styles.section_honer_container}`}>
-                        <p className={styles.title}>盈动荣誉</p>
-                        {honer.map((obj, index) => {
-                          return <p key={`${index + 1}`}>{obj.title}</p>;
-                        })}
-                      </div>
+              item = <SwiperSlide className={styles.swiper_item} key={obj._id}>
+                <div className={`${styles.section}`}>
+                  <div
+                    className={`${styles.section_bg} ${index == curIndex ? styles.animation_zoom : ''}`}
+                    style={
+                      contact
+                        ? {
+                          backgroundImage: `url(${contact.honer_bg
+                            .replace('cloud://incapital-4gly5z3b00512dc4.', 'https://')
+                            .replace(
+                              '696e-incapital-4gly5z3b00512dc4-1305204328',
+                              '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
+                            )}?imageView2/0/format/jpg/interlace/1/q/80|imageslim)`,
+                        }
+                        : {}
+                    }
+                  ></div>
+                  <div className={`${styles.section_honer}`}>
+                    <div className={`${styles.section_honer_container}`}>
+                      <p className={styles.title}>盈动荣誉</p>
+                      {honer.map((honerItem, index) => {
+                        return <p key={honerItem.title}>{honerItem.title}</p>;
+                      })}
                     </div>
                   </div>
-                </SwiperSlide>
-              </>
+                </div>
+              </SwiperSlide>
             } else {
               item = (
-                <SwiperSlide className={styles.swiper_item} key={`${index + 1}`}>
+                <SwiperSlide className={styles.swiper_item} key={obj._id}>
                   {index === 0 && <div className={styles.header}></div>}
                   <div className={`${styles.section}`}>
                     <div
@@ -121,7 +120,7 @@ function Home(props) {
                           : {}
                       }
                     ></div>
-                    <div className={styles[`section_content${index}`]}>
+                    <div className={styles[`section_content${index}`]} data={`section_content${index}`}>
                       {index != indexArr.length - 1 && (
                         <button
                           className={styles.icon_down}
