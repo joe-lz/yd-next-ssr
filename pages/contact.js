@@ -1,11 +1,10 @@
-import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { IndexReq } from './../requests/index';
 
-import styles from '../styles/contact.module.scss';
-import SeoHead from '../components/SeoHead/';
-import NDNavigator from '../components/NDNavigator/';
 import NDFooter from '../components/NDFooter/';
+import NDNavigator from '../components/NDNavigator/';
+import SeoHead from '../components/SeoHead/';
+import styles from '../styles/contact.module.scss';
 
 function Home() {
   const [index, setindex] = useState([]);
@@ -37,8 +36,8 @@ function Home() {
           } : {}}
         >
           <div className={styles.section_content4}>
-            <img src="./slogan.png" alt="" className={styles.slogan}/>
-            <img src="./wechat.png" alt="" className={styles.wechat}/>
+            <img src="./slogan2.png" alt="" className={styles.slogan} />
+            <img src="./wechat.png" alt="" className={styles.wechat} />
             <div className={`${styles.desc}`}>欢迎联系我们</div>
             {/* <div className={`${styles.section_title} ${styles.animation}`}>联系我们</div> */}
             <div className={styles.section_email_wrapper}>
