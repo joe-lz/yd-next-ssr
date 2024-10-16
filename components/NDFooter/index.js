@@ -1,7 +1,5 @@
-import styles from '../../styles/YDFooter.module.scss';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import styles from '../../styles/YDFooter.module.scss';
 import { IndexReq } from './../../requests/index';
 
 export default function YDNavigator(props) {
@@ -42,7 +40,7 @@ export default function YDNavigator(props) {
                             '696e-incapital-4gly5z3b00512dc4-1305204328',
                             '696e-incapital-4gly5z3b00512dc4-1305204328.tcb.qcloud.la',
                           )})`,
-                          backgroundColor: obj.bg
+                        backgroundColor: obj.bg
                       }
                       : {}
                   }
@@ -56,7 +54,9 @@ export default function YDNavigator(props) {
           </div>
           <div className={styles.wraper}>
             <span className={styles.link}>
-              {`- ${props.data.copyrights} | ${props.data.police_back} | Add：${props.data.address} | Tel：${props.data.tel} -`}
+              {`- ${props.data.copyrights}`}
+              <a href="https://beian.miit.gov.cn/" target="_blank">{` | ${props.data.police_back} | `}</a>
+              {`Add：${props.data.address} | Tel：${props.data.tel} -`}
             </span>
           </div>
         </div>
