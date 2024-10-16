@@ -15,7 +15,7 @@
     "export": "next export"
   },
   "engines": {
-    "node": "14.x"
+    "node": "12.x"
   },
   "dependencies": {
     "@ant-design/icons": "4.5.0",
